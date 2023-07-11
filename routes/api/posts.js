@@ -132,6 +132,7 @@ router.post('/comment/:id',[auth,[
         return res.status(400).json({errors: errors.array()})
     }
     try{
+        //Get user
         const user = await User.findById(req.user.id).select('-password');
         const post = await Post.findById(req.params.id);
         const newComment = {
