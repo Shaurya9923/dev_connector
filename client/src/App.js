@@ -1,25 +1,45 @@
 import './App.css';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
-const App = ()=> (
-  <Router>
-    <Fragment>
-      <Navbar/>
-    <Routes>
-      <Route exact path="/" element={<Landing/>} />
-    
-          <Route exact path="/register" element={<Register/>} />
-          <Route exact path="/login" element={<Login/>} />
-    </Routes>    
-      
-      {/* <Landing /> */}
-      
-    </Fragment>
-  </Router>
-  );
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
+import Alert from './components/layout/Alert';
+import setAuthToken from './utils/setAuthToken';
+import { loadUser } from './actions/auth';
+import Dashboard from './components/dashboard/Dashboard';
+import PrivateRoute from './components/routing/PrivateRoute';
+
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
+const App = ()=>{
+   useEffect(()=>{
+    store.dispatch(loadUser())
+   }, [])
+  return(
+  <Provider store={store}>
+    <Router>
+      <Fragment>
+        <Navbar/>
+        <Routes><Route exact path="/" element={<Landing/>} /></Routes>
+        <section className="container">
+          <Alert/>
+          <Routes>
+                <Route exact path="/register" element={<Register/>} />
+                <Route exact path="/login" element={<Login/>} />
+                <Route exact path="/dashboard" element={<PrivateRoute> <Dashboard/> </PrivateRoute>} />
+          </Routes>    
+        </section>
+        {/* <Landing /> */}
+        
+      </Fragment>
+    </Router>
+  </Provider>
+  )};
 
 export default App;
