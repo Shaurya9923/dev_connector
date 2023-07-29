@@ -42,12 +42,6 @@ export default function(state=initalState, action){
                 repos: payload,
                 loading: false
             }
-        case 'REPO_NULL':
-            return {
-                ...state,
-                repos: [],
-                loading: false
-            }
         default:
             return state;
     }
