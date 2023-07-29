@@ -21,7 +21,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
-import NotFound from './components/layout/NotFound';
+
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -49,7 +49,6 @@ const App = ()=>{
                 <Route exact path="/add-education" element={<PrivateRoute> <AddEducation/> </PrivateRoute>} />
                 <Route exact path="/posts" element={<PrivateRoute> <Posts/> </PrivateRoute>} />
                 <Route exact path="/posts/:id" element={<PrivateRoute> <Post/> </PrivateRoute>} />
-                <Route path='*' element={<NotFound/>} />
           </Routes>    
         {/* <Landing /> */}
         
