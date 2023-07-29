@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, GET_PROFILES, GET_REPOS } from "./types";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, GET_PROFILES, GET_REPOS, REPO_NULL } from "./types";
 
 
 // Get current users profile
@@ -47,7 +47,7 @@ export const getGithubRepos = username => async dispatch => {
         })
     }catch(err){
         dispatch({
-            type: PROFILE_ERROR,
+            type: REPO_NULL,
             payload: {msg: err.response.statusText, status: err.response.status}
         })
     }
