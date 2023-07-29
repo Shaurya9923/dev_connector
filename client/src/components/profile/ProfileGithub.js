@@ -14,7 +14,7 @@ const ProfileGithub = ({username, getGithubRepos, repos}) => {
     return (
         <div className='profile-github'>
             <h2 className='text-primary my-1'>Github Repos</h2>
-            {repos === null ? <Spinner/> : (
+            {repos.length === 0 ? (<p> No Github User Found</p>) : (
                 repos.map(repo=>(
                     <div key={repo._id} className='repo bg-white p-1 my-1'>
                         <div>
