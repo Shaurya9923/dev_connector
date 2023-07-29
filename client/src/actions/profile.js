@@ -47,7 +47,7 @@ export const getGithubRepos = username => async dispatch => {
         })
     }catch(err){
         dispatch({
-            type: PROFILE_ERROR,
+            type: REPO_NULL,
             payload: {msg: err.response.statusText, status: err.response.status}
         })
     }
