@@ -74,7 +74,7 @@ const AddEducation = ({addEducation}) => {
 
 
 AddEducation.propTypes = {
-    addExperience: PropTypes.func.isRequired
+    addEducation: PropTypes.func.isRequired
 };
 
 

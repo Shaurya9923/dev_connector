@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router,Route, Routes, useLocation, useParams } from 'react-router-dom';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -36,7 +36,6 @@ const App = ()=>{
       <Fragment>
         <Navbar/>
         <Routes><Route exact path="/" element={<Landing/>} /></Routes>
-        <section className="container">
           <Alert/>
           <Routes>
                 <Route exact path="/register" element={<Register/>} />
@@ -51,7 +50,6 @@ const App = ()=>{
                 <Route exact path="/posts" element={<PrivateRoute> <Posts/> </PrivateRoute>} />
                 <Route exact path="/posts/:id" element={<PrivateRoute> <Post/> </PrivateRoute>} />
           </Routes>    
-        </section>
         {/* <Landing /> */}
         
       </Fragment>

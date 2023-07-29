@@ -5,7 +5,7 @@ import {Route, Routes, useNavigate, Navigate} from 'react-router-dom'
 
 
 const PrivateRoute = ({children,auth, ...rest}) => {
-    return !auth.isAuthenticated && !auth.loading ? <Navigate to="/login"/> : <>{children}</> 
+    return !auth.isAuthenticated && !auth.loading ? <Navigate to="/login"/> : <><section className='container'>{children}</section></> 
 };
 
 

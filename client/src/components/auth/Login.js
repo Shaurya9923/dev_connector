@@ -23,6 +23,7 @@ const Login = ({login,isAuthenticated}) => {
       navigate('/dashboard')
     }
     return (<Fragment>
+      <section className="container">
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead"><i className="fas fa-user"></i>Sign Into Your Account</p>
       <form className="form" onSubmit={e=>onSubmitForm(e)}>
@@ -37,7 +38,7 @@ const Login = ({login,isAuthenticated}) => {
       <p className="my-1">
         Don't have an Account ? <Link to="/register">Sign Up</Link>
       </p>
-    </Fragment>)
+    </section></Fragment>)
 }
 
 Login.propTypes = {

@@ -28,6 +28,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         navigate('/dashboard')
     }
     return (<Fragment>
+        <section className="container">
       <h1 className="large text-primary">Sign Up</h1>
       <p className="lead"><i className="fas fa-user"></i>Create your Account</p>
       <form className="form" onSubmit={e=>onSubmitForm(e)}>
@@ -49,7 +50,8 @@ const Register = ({setAlert, register, isAuthenticated}) => {
       <p className="my-1">
         Already have an Account ? <Link to="/login">Sign In</Link>
       </p>
-    </Fragment>)
+    
+    </section></Fragment>)
 }
 
 Register.propTypes = {
